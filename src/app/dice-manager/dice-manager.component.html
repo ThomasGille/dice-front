@@ -1,0 +1,7 @@
+<div
+  class="dice-manager__add-button glyphicon glyphicon-plus-sign"
+  (click)="addDice()"
+></div>
+<mat-card *ngFor="let dice of dices">
+  <app-dice [dice]="dice" (onDelete)="removeDice($event)"></app-dice>
+</mat-card>

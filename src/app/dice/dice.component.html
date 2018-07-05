@@ -1,0 +1,37 @@
+<div class="dice-component">
+  <mat-form-field>
+    <input
+      matInput        
+      [(ngModel)]="dice.nbDice"
+      type="number"
+      placeholder="Nb Dice : "
+      min="1">
+  </mat-form-field>
+
+  <span>
+    <select name="diceType" [(ngModel)]="dice.diceType">
+      <option *ngFor="let diceType of [2,3,4,6,10,20,100]" [value]="diceType" [selected]="diceType==dice.diceType">
+        D{{diceType}}
+      </option>
+    </select>
+  </span>
+
+  <span>
+    <div>Bonus : </div>
+    <input
+            [(ngModel)]="dice.bonus"
+            type="number"
+    >
+  </span>
+
+  <button (click)="rollDices()" class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></button>
+
+  <div  *ngIf="dice.resultMessage">
+    <label>Result: {{dice.resultMessage}} </label>
+  </div>
+
+  <span>
+    <button (click)="selfDelete()" class="delete-button material-icons">delete</button>
+  </span>
+
+</div>

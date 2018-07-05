@@ -1,0 +1,25 @@
+.dice__roll-button{
+    height: 30px;
+    width: 30px;
+}
+
+span > input {
+    width: 50px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+span > select {
+    border-radius: 7px;
+}
+
+.dice-component {
+    & > span {
+        display: inline-block;
+    }
+    display: inline-flex;
+}
+
+.delete-button {
+    flex-shrink: 1;
+}
