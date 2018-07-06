@@ -1,4 +1,4 @@
-<mat-card>   
+<mat-card>
   <!-- Dice Title-->
   <div *ngIf="!editionMode" class="dice-title">
     <span>{{dice.name}}</span>
@@ -15,7 +15,7 @@
       <div class="form-child">
         <span>
           <input
-            [(ngModel)]="dice.nbDice"
+            [(ngModel)]="dice.number"
             type="number"
             name="diceNumber"
             placeholder="Nb Dice : "
@@ -23,15 +23,15 @@
         </span>
 
         <span>
-          <select name="diceType" [(ngModel)]="dice.diceType">
-            <option *ngFor="let diceType of [2,3,4,6,10,20,100]" [value]="diceType" [selected]="diceType==dice.diceType">
+          <select name="diceType" [(ngModel)]="dice.type">
+            <option *ngFor="let diceType of [2,3,4,6,8,10,12,20,100]" [value]="diceType" [selected]="diceType==dice.type">
               D{{diceType}}
             </option>
           </select>
         </span>
 
         <span>
-          + 
+          +
           <input
             [(ngModel)]="dice.bonus"
             type="number"
@@ -41,7 +41,7 @@
 
         <button (click)="rollDices()" class="material-icons cta">subdirectory_arrow_left</button>
     </div>
-  </form>  
+  </form>
 
     <div class="delete-button">
       <button (click)="selfDelete()" class="material-icons">delete_outline</button>
@@ -49,7 +49,7 @@
   </div>
 
   <!-- Dice message on click-->
-  <div  *ngIf="dice.resultMessage">
-    <label>Result: {{dice.resultMessage}} </label>
+  <div  *ngIf="resultMessage">
+    <label>Result: {{resultMessage}} </label>
   </div>
-</mat-card>    
+</mat-card>

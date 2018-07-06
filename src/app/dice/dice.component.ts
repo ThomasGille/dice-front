@@ -10,9 +10,10 @@ export class DiceComponent {
   @Input('dice') dice : Dice;
   @Output() onDelete: EventEmitter<any> = new EventEmitter();
   editionMode : boolean = false;
+  resultMessage = undefined;
 
   selfDelete() {
-      this.onDelete.emit(this.dice.id);
+      this.onDelete.emit(this.dice._id);
   }
 
   constructor() {}
@@ -20,8 +21,8 @@ export class DiceComponent {
 
   rollDices(){
     let tmp ="", count = 0;
-    for (let i = 0; i< this.dice.nbDice; i++){
-      let valJet = Math.floor(Math.random() * this.dice.diceType) + 1;
+    for (let i = 0; i< this.dice.number; i++){
+      let valJet = Math.floor(Math.random() * this.dice.type) + 1;
       tmp += valJet.toString() + " + ";
       count += valJet;
     }
@@ -30,6 +31,6 @@ export class DiceComponent {
 
     tmp += " = " + count;
 
-    this.dice.resultMessage = tmp;
+    this.resultMessage = tmp;
   }
 }

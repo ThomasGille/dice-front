@@ -3,10 +3,9 @@
  */
 
 export class Dice {
-    id: number;
+    _id: number;
     name: string;
-    nbDice: number;
-    diceType: number;
-    resultMessage: string;
+    number: number;
+    type: number;
     bonus: number;
 }

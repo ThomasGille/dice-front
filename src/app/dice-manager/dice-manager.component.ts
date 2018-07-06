@@ -19,11 +19,10 @@ export class DiceManagerComponent {
   addDice(){
     this.dices.push(
         {
-          id: this.diceCounter,
+          _id: this.diceCounter,
           name: "Potato's dices",
-          nbDice: 1,
-          diceType: 6,
-          resultMessage: null,
+          number: 1,
+          type: 6,
           bonus: 0
         }
     );
@@ -32,7 +31,7 @@ export class DiceManagerComponent {
 
   removeDice(id) {
     this.dices = this.dices.filter((el) => {
-      return el.id !== id;
+      return el._id !== id;
     });
   }
 }
