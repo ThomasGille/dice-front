@@ -1,6 +1,5 @@
 .dice__roll-button{
-    height: 30px;
-    width: 30px;
+    height: 100%;
 }
 
 span > input {
@@ -14,12 +13,41 @@ span > select {
 }
 
 .dice-component {
-    & > span {
-        display: inline-block;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  & > .form-child {
+      flex-grow: 1;
+      display: inline-flex;
+  }
+  & > .delete-button {
+    flex-shrink: 1;
+    & > button {
+    height: 100%;
+    background-color: #BF2B20;
     }
-    display: inline-flex;
+  }
 }
 
-.delete-button {
-    flex-shrink: 1;
+.cta {
+  background-color: #2B78FE;
+  color: white;
+}
+
+mat-card {
+  margin-bottom: 15px;
+}
+
+.dice-title{
+  display: inline; 
+}
+
+.dice-title-edit {
+  display: inline;
+}
+
+.small {
+  font-size: 16px;
+  padding-left: 10px;
+  cursor: pointer;
 }

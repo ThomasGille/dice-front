@@ -1,37 +1,55 @@
-<div class="dice-component">
-  <mat-form-field>
-    <input
-      matInput        
-      [(ngModel)]="dice.nbDice"
-      type="number"
-      placeholder="Nb Dice : "
-      min="1">
-  </mat-form-field>
+<mat-card>   
+  <!-- Dice Title-->
+  <div *ngIf="!editionMode" class="dice-title">
+    <span>{{dice.name}}</span>
+    <span (click)="editionMode=true" class="material-icons small">edit</span>
+  </div>
+  <form *ngIf="editionMode" class="dice-title-edit">
+    <input [(ngModel)]="dice.name" name="diceName" placeholder="name">
+    <button (click)="editionMode=false" class="material-icons small">check</button>
+  </form>
 
-  <span>
-    <select name="diceType" [(ngModel)]="dice.diceType">
-      <option *ngFor="let diceType of [2,3,4,6,10,20,100]" [value]="diceType" [selected]="diceType==dice.diceType">
-        D{{diceType}}
-      </option>
-    </select>
-  </span>
+  <!-- Dice differents forms-->
+  <div class="dice-component">
+    <form>
+      <div class="form-child">
+        <span>
+          <input
+            [(ngModel)]="dice.nbDice"
+            type="number"
+            name="diceNumber"
+            placeholder="Nb Dice : "
+            min="1">
+        </span>
 
-  <span>
-    <div>Bonus : </div>
-    <input
+        <span>
+          <select name="diceType" [(ngModel)]="dice.diceType">
+            <option *ngFor="let diceType of [2,3,4,6,10,20,100]" [value]="diceType" [selected]="diceType==dice.diceType">
+              D{{diceType}}
+            </option>
+          </select>
+        </span>
+
+        <span>
+          + 
+          <input
             [(ngModel)]="dice.bonus"
             type="number"
-    >
-  </span>
+            name="diceBonus"
+          >
+        </span>
 
-  <button (click)="rollDices()" class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></button>
+        <button (click)="rollDices()" class="material-icons cta">subdirectory_arrow_left</button>
+    </div>
+  </form>  
 
+    <div class="delete-button">
+      <button (click)="selfDelete()" class="material-icons">delete_outline</button>
+    </div>
+  </div>
+
+  <!-- Dice message on click-->
   <div  *ngIf="dice.resultMessage">
     <label>Result: {{dice.resultMessage}} </label>
   </div>
-
-  <span>
-    <button (click)="selfDelete()" class="delete-button material-icons">delete</button>
-  </span>
-
-</div>
+</mat-card>    

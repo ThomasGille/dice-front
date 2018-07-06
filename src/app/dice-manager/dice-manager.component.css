@@ -9,7 +9,3 @@
 .dice-manager__add-button:hover {
     transform: scale(1.2);
 }
-
-mat-card {
-    margin-bottom: 15px;
-}

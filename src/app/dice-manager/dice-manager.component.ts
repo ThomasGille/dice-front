@@ -13,7 +13,7 @@ export class DiceManagerComponent {
   constructor(private monsterService: MonsterService) {
     monsterService.getUsers().subscribe((data) => {
       console.log(data);
-    });;
+    });
   }
 
   addDice(){

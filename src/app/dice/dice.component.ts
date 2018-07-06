@@ -9,6 +9,7 @@ import { Dice } from '../dice'
 export class DiceComponent {
   @Input('dice') dice : Dice;
   @Output() onDelete: EventEmitter<any> = new EventEmitter();
+  editionMode : boolean = false;
 
   selfDelete() {
       this.onDelete.emit(this.dice.id);
