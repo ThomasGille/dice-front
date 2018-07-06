@@ -1,0 +1,7 @@
+<div *ngFor="let game of games" class="col-sm-4 col-xl-4 col-xs-4">
+  <mat-card>
+    <a routerLink="/game/{{game._id}}">
+      {{game.name}}
+    </a>
+  </mat-card>
+</div>

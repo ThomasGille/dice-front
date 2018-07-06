@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MonsterService } from '../service/monsters.service';
-import {Dice} from "../dice";
+import { Dice } from "../models/dice";
 
 @Component({
   selector: 'dice-manager',
@@ -17,15 +17,12 @@ export class DiceManagerComponent {
   }
 
   addDice(){
-    this.dices.push(
-        {
-          _id: this.diceCounter,
-          name: "Potato's dices",
-          number: 1,
-          type: 6,
-          bonus: 0
-        }
-    );
+    this.dices.push( new Dice(
+          this.diceCounter.toString(),
+          "Potato's dices",
+          1,
+          6,
+          0));
     this.diceCounter++;
   }
 

@@ -1,5 +1,5 @@
 import { Component, Input, Output , ViewContainerRef, EventEmitter } from '@angular/core';
-import { Dice } from '../dice'
+import { Dice } from '../models/dice'
 
 @Component({
   selector: 'app-dice',
