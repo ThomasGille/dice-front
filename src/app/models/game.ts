@@ -26,8 +26,8 @@ export class Game implements Model{
         return this;
     }
 
-    _id: String;
-    name: String;
-    _dices: Dice [];
-    _monsters: Monster [];
+    public _id: String;
+    public name: String;
+    public _dices: Dice [];
+    public _monsters: Monster [];
 }

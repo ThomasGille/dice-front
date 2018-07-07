@@ -9,7 +9,7 @@ import { Game } from '../models/game';
 @Component({
   selector: 'app-game',
   templateUrl: './game-list.component.html',
-  styleUrls: ['./game-list.component.css']
+  styleUrls: ['./game-list.component.scss']
 })
 export class GameListComponent implements OnInit {
   games : Game [] = [];
@@ -18,11 +18,18 @@ export class GameListComponent implements OnInit {
 
   ngOnInit() {
     this.gameService.getAllGames().subscribe((games) => {
-      console.log(games);
+      games.forEach(game => {
+      this.games.push(new Game(null, null).hydrateFromJSON(game))
+      });
     });
-    this.games.push(new Game("idRandomDeGame1", "Game Patate"));
-    this.games.push(new Game("idRandomDeGame2", "Game Carotte"));
-    this.games.push(new Game("idRandomDeGame3", "Game Navet"));
+  }
+
+  deleteGame(id) {
+    this.gameService.deleteGame(id).subscribe(() => {
+      this.games.filter((el:Game) => {
+        return el._id != id;
+      });
+    });
   }
 
 }
