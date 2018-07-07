@@ -26,8 +26,8 @@ export class GameListComponent implements OnInit {
 
   deleteGame(id) {
     this.gameService.deleteGame(id).subscribe(() => {
-      this.games.filter((el:Game) => {
-        return el._id != id;
+      this.games = this.games.filter((el:Game) => {
+        return el._id !== id;
       });
     });
   }
