@@ -2,8 +2,9 @@
  * Created by Epulapp on 02/05/2017.
  */
 import { Model } from './model.interface';
+import { Equal } from './equal.interface';
 
-export class Dice implements Model {
+export class Dice implements Model, Equal {
     constructor(id: String, name: String, number: number, type: number, bonus: number) {
         this._id = id;
         this.name = name;
@@ -19,6 +20,14 @@ export class Dice implements Model {
         this.type = json.type;
         this.bonus = json.bonus;
         return this;
+    }
+
+    equals(dice: Dice): boolean {
+        return (
+            this.name === dice.name &&
+            this.bonus === dice.bonus &&
+            this.type === dice.type &&
+            this.number === dice.number);
     }
 
     _id: String;

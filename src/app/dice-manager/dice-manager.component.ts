@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MonsterService } from '../service/monsters.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { DiceService } from '../service/dice.service';
 import { Dice } from "../models/dice";
 
 @Component({
@@ -8,27 +8,23 @@ import { Dice } from "../models/dice";
   styleUrls: ['./dice-manager.component.css']
 })
 export class DiceManagerComponent {
-  diceCounter = 0;
-  dices: Dice [] = [];
-  constructor(private monsterService: MonsterService) {
-    monsterService.getUsers().subscribe((data) => {
-      console.log(data);
-    });
+  @Input() dices: Dice [] = [];
+  @Input() idGame : String;
+
+  constructor(private diceService: DiceService) {
   }
 
   addDice(){
-    this.dices.push( new Dice(
-          this.diceCounter.toString(),
-          "Potato's dices",
-          1,
-          6,
-          0));
-    this.diceCounter++;
+    this.diceService.createDice(this.idGame, "Dice" + (Math.floor(Math.random() * 1000) + 1), 1, 6, 0).subscribe((dice) => {
+      this.dices.push(new Dice(null, null, null, null, null).hydrateFromJSON(dice));
+    });
   }
 
   removeDice(id) {
-    this.dices = this.dices.filter((el) => {
-      return el._id !== id;
+    this.diceService.deleteDice(this.idGame, id).subscribe(() => {
+      this.dices = this.dices.filter((el) => {
+        return el._id !== id;
+      });
     });
   }
 }

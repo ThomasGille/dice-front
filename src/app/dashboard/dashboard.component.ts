@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { GameService } from "app/service/game.service";
-import { Game } from "app/models/game";
+import { GameService } from "../service/game.service";
+import { Game } from "../models/game";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +11,7 @@ import { Game } from "app/models/game";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  game : Game;
+  game : Game = new Game(null, 'Loading...');
 
   constructor(
     private route: ActivatedRoute,
@@ -22,9 +22,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.gameService.getGameById(id).subscribe((game) => {
-      console.log(game);
+      this.game = new Game(null, null).hydrateFromJSON(game);
     });
-    this.game = new Game("idRandomDeGame1", "Game Patate");
   }
 
 }

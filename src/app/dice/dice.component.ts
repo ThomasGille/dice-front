@@ -1,23 +1,30 @@
-import { Component, Input, Output , ViewContainerRef, EventEmitter } from '@angular/core';
+import { Component, Input, Output , ViewContainerRef, EventEmitter, OnInit } from '@angular/core';
+
 import { Dice } from '../models/dice'
+import { DiceService } from '../service/dice.service';
 
 @Component({
   selector: 'app-dice',
   templateUrl: './dice.component.html',
   styleUrls: ['./dice.component.scss']
 })
-export class DiceComponent {
+export class DiceComponent implements OnInit{
   @Input('dice') dice : Dice;
   @Output() onDelete: EventEmitter<any> = new EventEmitter();
+  oldDIce : Dice = null;
   editionMode : boolean = false;
   resultMessage = undefined;
 
-  selfDelete() {
-      this.onDelete.emit(this.dice._id);
+  constructor(private diceService : DiceService) {}
+
+  ngOnInit(): void {
+    // copy by value
+    this.oldDIce = JSON.parse(JSON.stringify(this.dice));
   }
 
-  constructor() {}
-
+  selfDelete() {
+    this.onDelete.emit(this.dice._id);
+  }
 
   rollDices(){
     let tmp ="", count = 0;
@@ -32,5 +39,16 @@ export class DiceComponent {
     tmp += " = " + count;
 
     this.resultMessage = tmp;
+    this.updateDice();
+  }
+
+  updateDice() {
+    if (!this.dice.equals(this.oldDIce)) {
+      this.diceService.updateDice(this.dice).subscribe((updatedDice) => {
+        this.dice = new Dice(null, null, null, null, null).hydrateFromJSON(updatedDice);
+      });
+      // copy by value
+      this.oldDIce = JSON.parse(JSON.stringify(this.dice));
+    }
   }
 }

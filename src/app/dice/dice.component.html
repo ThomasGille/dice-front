@@ -6,7 +6,7 @@
   </div>
   <form *ngIf="editionMode" class="dice-title-edit">
     <input [(ngModel)]="dice.name" name="diceName" placeholder="name">
-    <button (click)="editionMode=false" class="material-icons small">check</button>
+    <button (click)="editionMode=false; updateDice();" class="material-icons small">check</button>
   </form>
 
   <!-- Dice differents forms-->

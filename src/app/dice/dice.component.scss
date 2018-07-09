@@ -39,11 +39,14 @@ mat-card {
 }
 
 .dice-title{
-  display: inline; 
+  display: inline;
 }
 
 .dice-title-edit {
   display: inline;
+  & > input {
+    width: calc(100% - 100px);
+  }
 }
 
 .small {

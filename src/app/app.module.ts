@@ -15,6 +15,7 @@ import { GameListComponent } from './game-list/game-list.component';
 
 import { MonsterService } from './service/monsters.service';
 import { GameService } from './service/game.service';
+import { DiceService } from './service/dice.service';
 import { GameFormComponent } from './game-form/game-form.component'
 
 @NgModule({
@@ -40,6 +41,7 @@ import { GameFormComponent } from './game-form/game-form.component'
   providers: [
     MonsterService,
     GameService,
+    DiceService,
   ],
   bootstrap: [AppComponent]
 })
