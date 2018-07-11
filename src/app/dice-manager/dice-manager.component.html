@@ -1,5 +1,5 @@
 <div
-  class="dice-manager__add-button glyphicon glyphicon-plus-sign"
+  class="add-button glyphicon glyphicon-plus-sign"
   (click)="addDice()"
 ></div>
 <app-dice *ngFor="let dice of dices" [dice]="dice" (onDelete)="removeDice($event)"></app-dice>

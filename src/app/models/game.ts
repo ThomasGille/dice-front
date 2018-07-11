@@ -21,7 +21,7 @@ export class Game implements Model{
         });
         this._monsters = [];
         json._monsters.forEach(monster => {
-            this._monsters.push(new Monster(null, null, null, null, null, null).hydrateFromJSON(monster));
+            this._monsters.push(new Monster(null, null).hydrateFromJSON(monster));
         });
         return this;
     }
