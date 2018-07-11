@@ -1,0 +1,26 @@
+<mat-card class="monster-container">
+  <!-- Monster image -->
+  <img src="{{monster.pictureLink}}" alt="Image du monstre" class="monster-picture"/>
+  <!-- Monster Title-->
+  <div *ngIf="!editionMode" class="monster-title">
+    <span>{{monster.name}}</span>
+    <span (click)="editionMode=true" class="material-icons small">edit</span>
+  </div>
+  <form *ngIf="editionMode" class="monster-title-edit">
+    <input [(ngModel)]="monster.name" name="monsterName" placeholder="name">
+    <button (click)="editionMode=false; updateMonster();" class="material-icons small">check</button>
+  </form>
+
+  <!-- Monster life bar -->
+  <span>
+    Vie :
+    <input
+      [(ngModel)]="monster.health"
+      type="number"
+      name="monsterHealth">
+  </span>
+  <!-- Monster delete button -->
+  <div class="delete-button">
+    <button (click)="selfDelete()" class="material-icons">delete_outline</button>
+  </div>
+</mat-card>

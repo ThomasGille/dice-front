@@ -1,0 +1,11 @@
+.add-button{
+    font-size: 34px;
+    color: grey;
+    margin-left: 45%;
+    padding-top: 5px;
+    transition: all .2s ease-in-out;
+}
+
+.add-button:hover {
+    transform: scale(1.2);
+}

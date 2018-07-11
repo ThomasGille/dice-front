@@ -1,0 +1,5 @@
+<div
+  class="add-button glyphicon glyphicon-plus-sign"
+  (click)="addMonster()"
+></div>
+<app-monster *ngFor="let monster of monsters" [monster]="monster" (onDelete)="removeMonster($event)" (click)='selected(monster)'></app-monster>
