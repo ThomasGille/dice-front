@@ -7,18 +7,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//// Components
 import { MatCardModule } from '@angular/material';
-import { DiceComponent } from './dice/dice.component';
-import { DiceManagerComponent } from './dice-manager/dice-manager.component';
-import { MonsterManagerComponent } from './monster-manager/monster-manager.component';
-import { MonsterComponent } from './monster/monster.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { GameListComponent } from './game-list/game-list.component';
+import { DiceComponent } from './components/dice/dice.component';
+import { DiceManagerComponent } from './components/dice-manager/dice-manager.component';
+import { MonsterManagerComponent } from './components/monster-manager/monster-manager.component';
+import { MonsterComponent } from './components/monster/monster.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { GameListComponent } from './components/game-list/game-list.component';
 
+//// Services
 import { MonsterService } from './service/monster.service';
 import { GameService } from './service/game.service';
 import { DiceService } from './service/dice.service';
-import { GameFormComponent } from './game-form/game-form.component'
+
+//// Forms
+import { GameFormComponent } from './components/game-form/game-form.component'
 
 @NgModule({
   declarations: [

@@ -11,6 +11,7 @@ export class Dice implements Model, Equal {
         this.number = number;
         this.type = type;
         this.bonus = bonus;
+        this.objective = null;
     }
 
     hydrateFromJSON(json: any) : Dice{
@@ -19,6 +20,7 @@ export class Dice implements Model, Equal {
         this.number = json.number;
         this.type = json.type;
         this.bonus = json.bonus;
+        this.objective = json.objective;
         return this;
     }
 
@@ -27,7 +29,8 @@ export class Dice implements Model, Equal {
             this.name === dice.name &&
             this.bonus === dice.bonus &&
             this.type === dice.type &&
-            this.number === dice.number);
+            this.number === dice.number &&
+            this.objective === dice.objective);
     }
 
     _id: String;
@@ -35,4 +38,5 @@ export class Dice implements Model, Equal {
     number: number;
     type: number;
     bonus: number;
+    objective : number;
 }

@@ -28,6 +28,7 @@ export class DiceService {
       type: dice.type,
       number : dice.number,
       bonus: dice.bonus,
+      objective: dice.objective,
     });
   }
 }
