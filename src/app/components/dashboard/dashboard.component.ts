@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
 
   setCurrentMonster(monster: Monster) {
     this.currentMonster = monster;
+    console.log(this.currentMonster._dices);
   }
 
 }

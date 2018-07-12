@@ -20,7 +20,7 @@ export class Dice implements Model, Equal {
         this.number = json.number;
         this.type = json.type;
         this.bonus = json.bonus;
-        this.objective = json.objective;
+        this.objective = json.objective || null;
         return this;
     }
 

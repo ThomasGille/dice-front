@@ -9,8 +9,9 @@ export class DiceService {
 
   constructor(private http:HttpClient) { }
 
-  createDice(idGame: String, name: String, number : number, type: number, bonus: number) : Observable<any>{
-    return this.http.post(this.baseUrl + 'games/' + idGame + '/dices', {
+  createDice(idGame: String, idMonster: String, name: String, number : number, type: number, bonus: number) : Observable<any>{
+    const url = idGame ? this.baseUrl + 'games/' + idGame + '/dices' : this.baseUrl + 'monsters/' + idMonster + '/dices';
+    return this.http.post(url, {
       name,
       number,
       type,
@@ -18,8 +19,9 @@ export class DiceService {
     });
   }
 
-  deleteDice(idGame:String, idDice) {
-    return this.http.delete(this.baseUrl + 'games/' + idGame + '/dices/' + idDice);
+  deleteDice(idGame:String, idMonster: String, idDice) {
+    const url = idGame ? this.baseUrl + 'games/' + idGame + '/dices/' + idDice : this.baseUrl + 'monsters/' + idMonster + '/dices/' + idDice;
+    return this.http.delete(url);
   }
 
   updateDice(dice: Dice) {

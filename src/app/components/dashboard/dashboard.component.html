@@ -10,5 +10,5 @@
 
 <div *ngIf="currentMonster" class="col-sm-4 col-xl-4 col-xs-4">
   <h3>Detail de : {{currentMonster.name}}</h3>
-  <app-monster-detail></app-monster-detail>
+  <dice-manager [dices]="currentMonster._dices" [idMonster]="currentMonster._id"></dice-manager>
 </div>

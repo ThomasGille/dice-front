@@ -10,18 +10,19 @@ import { Dice } from "../../models/dice";
 export class DiceManagerComponent {
   @Input() dices: Dice [] = [];
   @Input() idGame : String;
+  @Input() idMonster : String;
 
   constructor(private diceService: DiceService) {
   }
 
   addDice(){
-    this.diceService.createDice(this.idGame, "Dice" + (Math.floor(Math.random() * 1000) + 1), 1, 6, 0).subscribe((dice) => {
+    this.diceService.createDice(this.idGame, this.idMonster, "Dice" + (Math.floor(Math.random() * 1000) + 1), 1, 6, 0).subscribe((dice) => {
       this.dices.push(new Dice(null, null, null, null, null).hydrateFromJSON(dice));
     });
   }
 
   removeDice(id) {
-    this.diceService.deleteDice(this.idGame, id).subscribe(() => {
+    this.diceService.deleteDice(this.idGame, this.idMonster, id).subscribe(() => {
       this.dices = this.dices.filter((el) => {
         return el._id !== id;
       });

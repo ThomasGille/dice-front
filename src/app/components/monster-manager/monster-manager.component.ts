@@ -26,6 +26,7 @@ export class MonsterManagerComponent {
       this.monsters = this.monsters.filter((el) => {
         return el._id !== id;
       });
+      this.onSelected.emit(null);
     });
   }
 
