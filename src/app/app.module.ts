@@ -13,6 +13,7 @@ import { DiceComponent } from './components/dice/dice.component';
 import { DiceManagerComponent } from './components/dice-manager/dice-manager.component';
 import { MonsterManagerComponent } from './components/monster-manager/monster-manager.component';
 import { MonsterComponent } from './components/monster/monster.component';
+import { MonsterDetailComponent } from 'app/components/monster-detail/monster-detail.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 
@@ -31,6 +32,7 @@ import { GameFormComponent } from './components/game-form/game-form.component'
     DiceManagerComponent,
     MonsterManagerComponent,
     MonsterComponent,
+    MonsterDetailComponent,
     DashboardComponent,
     GameListComponent,
     GameFormComponent,

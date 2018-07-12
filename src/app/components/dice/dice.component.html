@@ -5,7 +5,7 @@
     <span (click)="editionMode=true" class="material-icons small">edit</span>
   </div>
   <form *ngIf="editionMode" class="dice-title-edit">
-    <input [(ngModel)]="dice.name" name="diceName" placeholder="name">
+    <input [(ngModel)]="dice.name" name="diceName" placeholder="name" required>
     <button (click)="editionMode=false; updateDice();" class="material-icons small">check</button>
   </form>
 
@@ -19,7 +19,7 @@
             type="number"
             name="diceNumber"
             placeholder="Nb Dice : "
-            min="1">
+            min="1" required>
         </span>
 
         <span>
@@ -36,7 +36,7 @@
             [(ngModel)]="dice.bonus"
             type="number"
             name="diceBonus"
-          >
+            required>
         </span>
 
         <span>

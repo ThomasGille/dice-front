@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { GameService } from "../../service/game.service";
 import { Game } from "../../models/game";
+import { Monster } from "app/models/monster";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ import { Game } from "../../models/game";
 })
 export class DashboardComponent implements OnInit {
   game : Game = new Game(null, 'Loading...');
+  currentMonster : Monster = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +26,10 @@ export class DashboardComponent implements OnInit {
     this.gameService.getGameById(id).subscribe((game) => {
       this.game = new Game(null, null).hydrateFromJSON(game);
     });
+  }
+
+  setCurrentMonster(monster: Monster) {
+    this.currentMonster = monster;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MonsterService } from '../../service/monster.service';
 import { Monster } from "../../models/monster";
 
@@ -10,6 +10,7 @@ import { Monster } from "../../models/monster";
 export class MonsterManagerComponent {
   @Input() monsters: Monster [] = [];
   @Input() idGame : String;
+  @Output() onSelected: EventEmitter<any> = new EventEmitter();
 
   constructor(private monsterService: MonsterService) {
   }
@@ -29,6 +30,6 @@ export class MonsterManagerComponent {
   }
 
   selected(monster: Monster) {
-    console.log('Je suis une carotte');
+    this.onSelected.emit(monster);
   }
 }

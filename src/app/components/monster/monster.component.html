@@ -8,6 +8,8 @@
   </div>
   <form *ngIf="editionMode" class="monster-title-edit">
     <input [(ngModel)]="monster.name" name="monsterName" placeholder="name">
+    <br />
+    <input [(ngModel)]="monster.pictureLink" name="monsterPictureLink" placeholder="pictureLink">
     <button (click)="editionMode=false; updateMonster();" class="material-icons small">check</button>
   </form>
 

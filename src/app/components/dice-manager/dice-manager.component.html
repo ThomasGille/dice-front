@@ -1,5 +1,5 @@
-<div
-  class="add-button glyphicon glyphicon-plus-sign"
-  (click)="addDice()"
-></div>
 <app-dice *ngFor="let dice of dices" [dice]="dice" (onDelete)="removeDice($event)"></app-dice>
+<div
+class="add-button glyphicon glyphicon-plus-sign"
+(click)="addDice()"
+></div>
