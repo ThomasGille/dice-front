@@ -1,10 +1,5 @@
 <div class="game-container">
-  <mat-card *ngFor="let game of games" class="game">
-    <a routerLink="/game/{{game._id}}" class="game-link">
-      {{game.name}}
-    </a>
-    <div class="delete-button">
-      <button (click)="deleteGame(game._id)" class="material-icons">delete_outline</button>
-    </div>
+  <mat-card *ngFor="let game of games">
+    <app-game-item  [game]="game" (onDelete)="removeGame($event)"></app-game-item>
   </mat-card>
 </div>

@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// for getting route params
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { GameService } from '../../service/game.service';
 import { Game } from '../../models/game';
@@ -24,12 +21,9 @@ export class GameListComponent implements OnInit {
     });
   }
 
-  deleteGame(id) {
-    this.gameService.deleteGame(id).subscribe(() => {
-      this.games = this.games.filter((el:Game) => {
-        return el._id !== id;
-      });
+  removeGame (id: String) {
+    this.games = this.games.filter((game) => {
+      return game._id !== id;
     });
   }
-
 }

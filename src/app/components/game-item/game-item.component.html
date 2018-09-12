@@ -1,0 +1,19 @@
+
+<!-- Normal mode-->
+<div *ngIf="!editionMode" class="game">
+  <a routerLink="/game/{{game._id}}" class="game-link">
+    {{game.name}}
+  </a>
+  <div class="edit-button">
+    <button (click)="editionMode=true" class="material-icons">edit</button>
+  </div>
+  <div class="delete-button">
+    <button (click)="deleteGame(game._id)" class="material-icons">delete_outline</button>
+  </div>
+</div>
+
+<!-- Edition Mode-->
+<form *ngIf="editionMode">
+  <input [(ngModel)]="game.name" name="gameName" placeholder="name">
+  <button (click)="editionMode=false; updateGame();" class="material-icons small">check</button>
+</form>

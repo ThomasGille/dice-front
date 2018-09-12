@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
+import { Game } from '../models/game';
 
 @Injectable()
 export class GameService {
@@ -24,5 +25,11 @@ export class GameService {
 
   deleteGame(id:String) {
     return this.http.delete(this.baseUrl + 'games/' + id);
+  }
+
+  editGame(id: String, name: String) {
+    return this.http.put(this.baseUrl + 'games/' + id, {
+      name,
+    });
   }
 }

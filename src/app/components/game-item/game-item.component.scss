@@ -1,0 +1,24 @@
+.game {
+    display: inline-flex;
+    justify-content: space-between;
+    min-width: 250px;
+    align-content: center;
+}
+
+.game-link {
+    padding-top: 6px;
+}
+
+.delete-button {
+    & > button {
+    height: 100%;
+    background-color: #BF2B20;
+    }
+}
+
+.edit-button {
+    & > button {
+    height: 100%;
+    background-color: blue;
+    }
+}

@@ -15,6 +15,7 @@ import { MonsterManagerComponent } from './components/monster-manager/monster-ma
 import { MonsterComponent } from './components/monster/monster.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GameListComponent } from './components/game-list/game-list.component';
+import { GameItemComponent } from './components/game-item/game-item.component';
 
 //// Services
 import { MonsterService } from './service/monster.service';
@@ -33,6 +34,7 @@ import { GameFormComponent } from './components/game-form/game-form.component'
     MonsterComponent,
     DashboardComponent,
     GameListComponent,
+    GameItemComponent,
     GameFormComponent,
   ],
   imports: [

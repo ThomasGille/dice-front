@@ -31,5 +31,9 @@
       </span>
     </button>
 
+    <button *ngIf="model._id" class="btn btn-default" routerLink="/game/{{model._id}}">
+      Aller à la partie
+    </button>
+
   </form>
 </div>
