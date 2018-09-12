@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+var compression = require('compression');
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -17,12 +18,18 @@ const forceSSL = function() {
         next();
     }
 }
-  
-// Instruct the app
-// to use the forceSSL
-// middleware
-  
+
+const shouldCompress = function(req, res) {
+  if (req.headers['x-no-compression']) {
+    // don't compress responses with this request header
+    return false
+  }
+  // fallback to standard filter function
+  return compression.filter(req, res)
+}
+
 app.use(forceSSL());
+app.use(compression({filter: shouldCompress}))
 
 // Run the app by serving the static files
 // in the dist directory
@@ -32,3 +39,7 @@ app.use(express.static(__dirname + '/dist'));
 // Heroku port
 
 app.listen(process.env.PORT || 8080);
+
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
