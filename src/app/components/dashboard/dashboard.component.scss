@@ -1,0 +1,12 @@
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    & > h1 {
+        margin-top: 0;
+        padding-left: 15px;
+    }
+}
+

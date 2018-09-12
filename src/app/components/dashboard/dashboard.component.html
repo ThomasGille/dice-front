@@ -1,4 +1,9 @@
-<h1>{{game.name}}</h1>
+<div class="title-container">
+    <h1>{{game.name}}</h1>
+    <button class="btn btn-default" routerLink="/game/{{game._id}}/map">
+      Créer une carte interactive
+    </button>
+</div>
 
 <div class="col-sm-4 col-xl-4 col-xs-4">
   <dice-manager [dices]="game._dices" [idGame]="game._id"></dice-manager>
