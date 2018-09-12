@@ -1,6 +1,12 @@
-<nav>
-  <a routerLink="/games">Parties</a>
-  <a routerLink="/games/create">Create Game</a>
-  <a routerLink="/monster/create">Create Monster</a>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="height: auto;">Dice-Wanderer</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/games">Parties</a></li>
+      <li><a routerLink="/games/create">Create Game</a></li>
+    </ul>
+  </div>
 </nav>
 <router-outlet></router-outlet>

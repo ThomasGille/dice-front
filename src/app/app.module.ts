@@ -16,6 +16,7 @@ import { MonsterComponent } from './components/monster/monster.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameItemComponent } from './components/game-item/game-item.component';
+import { MapComponent } from './components/map/map.component';
 
 //// Services
 import { MonsterService } from './service/monster.service';
@@ -36,6 +37,7 @@ import { GameFormComponent } from './components/game-form/game-form.component'
     GameListComponent,
     GameItemComponent,
     GameFormComponent,
+    MapComponent,
   ],
   imports: [
     AppRoutingModule,
