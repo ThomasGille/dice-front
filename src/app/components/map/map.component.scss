@@ -1,0 +1,38 @@
+.sidenav {
+    margin-top: 50px;
+    height: calc(100% - 50px);
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f8f8f8;
+    overflow-x: hidden;
+    padding-top: 20px;
+
+    & > .background-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .avaliable-square-background-picture {
+            width: 80px;
+            height: 80px;
+        }
+    }
+}
+
+.main {
+    margin-left: 15%; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+
+    & > .line {
+        display: inline-table;
+        & > .square {
+            & > .square-background-picture {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    }
+}
