@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { GameService } from "../../service/game.service";
 import { Game } from "../../models/game";
@@ -17,8 +16,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private gameService: GameService,
-    private location: Location
+    private gameService: GameService
   ) { }
 
   ngOnInit() {
@@ -30,7 +28,6 @@ export class DashboardComponent implements OnInit {
 
   setCurrentMonster(monster: Monster) {
     this.currentMonster = monster;
-    console.log(this.currentMonster._dices);
   }
 
 }

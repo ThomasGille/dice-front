@@ -1,16 +1,36 @@
 <div class="sidenav">
+  <!-- Backgrounds -->
   <div class="background-container">
     <div class="background-item" *ngFor="let url of avaliableBackgrounds">
         <span *ngIf="url === selectedBackground">></span>
-      <img src="{{url}}" alt="Fond" class="avaliable-square-background-picture" (click)="selectedBackground = url;"/>
+      <img src="{{url}}" alt="Fond" class="avaliable-square-background-picture" (click)="selectedBackground = url; selectedMonster = null; "/>
       <span *ngIf="url === selectedBackground"><</span>
     </div>
   </div>
-</div>
 
-<div class="main">
+  <hr>
+
+  <!-- Monsters -->
+  <div class="background-container">
+    <div class="background-item" *ngFor="let monster of game._monsters">
+        <span *ngIf="monster === selectedMonster">></span>
+      <img src="{{monster.pictureLink}}" alt="Fond" class="avaliable-square-background-picture" (click)="selectedMonster = monster; selectedBackground = null;"/>
+      <span *ngIf="monster === selectedMonster"><</span>
+    </div>
+  </div>
+</div>
+  <!-- END OF NAVBAR -->
+
+
+<div class="main" (click)="onClick($event)">
+  <!-- Monsters display-->
+  <div class="player" *ngFor="let player of game._monsters ;">
+      <img src="{{player.pictureLink}}" alt="Case" class="player-picture" [ngStyle]="{'margin-top.px': player.y*80, 'margin-left.px': player.x*80}"/>
+  </div>
+
+  <!-- Background display -->
   <div class="line" *ngFor="let item of map ; index as i">
-    <div class="square" *ngFor="let sub of item ; index as j;" (click)="onClick(i,j)">
+    <div class="square" *ngFor="let sub of item ; index as j;">
       <img src="{{sub}}" alt="Case" class="square-background-picture"/>
     </div>
   </div>
