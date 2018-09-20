@@ -14,7 +14,7 @@ export class MapComponent implements OnInit {
   public CASE_DIMENTION : number = 80;
   x_dim = 5;
   y_dim = 5;
-  map : String [][] ;
+  map : String [][]  = [];
   game : Game = new Game(null, 'Loading...');
 
   avaliableBackgrounds = [
@@ -32,15 +32,7 @@ export class MapComponent implements OnInit {
     private route: ActivatedRoute,
     private gameService: GameService,
     private monsterService: MonsterService) {
-      console.log();
-    this.map = [];
-
-    for(var i: number = 0; i < this.x_dim; i++) {
-        this.map[i] = [];
-        for(var j: number = 0; j< this.y_dim; j++) {
-            this.map[i][j] = "https://thumbs.dreamstime.com/t/simple-neutral-grey-background-grunge-rustic-look-perhaps-advertising-spot-colors-63759748.jpg";
-        }
-    }
+      this.updateMap();
    }
 
   ngOnInit() {
