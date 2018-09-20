@@ -9,6 +9,14 @@
     background-color: #f8f8f8;
     overflow-x: hidden;
     padding-top: 20px;
+    & > form {
+      & > input {
+        max-width: 35%;
+      }
+      & > button {
+        max-width: 20%;
+      }
+    }
 
     & > .background-container {
         display: flex;
@@ -30,10 +38,14 @@
     & > .line {
         display: inline-table;
         & > .square {
-            & > .square-background-picture {
-                width: 80px;
-                height: 80px;
-            }
+          & > span {
+            min-width: 15px;
+          }
+
+          & > .square-background-picture {
+              width: 80px;
+              height: 80px;
+          }
         }
     }
 

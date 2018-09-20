@@ -1,4 +1,11 @@
 <div class="sidenav">
+  <!-- Dimentions form -->
+  <form class="map-form">
+    <input type="number" min="1" [(ngModel)]="x_dim" name="x_dim" placeholder="Largeur" required>
+    <input type="number" min="1" [(ngModel)]="y_dim" name="y_dim" placeholder="Hauteur" required>
+    <button (click)="updateMap()" class="material-icons small">check</button>
+  </form>
+
   <!-- Backgrounds -->
   <div class="background-container">
     <div class="background-item" *ngFor="let url of avaliableBackgrounds">
@@ -13,7 +20,7 @@
   <!-- Monsters -->
   <div class="background-container">
     <div class="background-item" *ngFor="let monster of game._monsters">
-        <span *ngIf="monster === selectedMonster">></span>
+      <span *ngIf="monster === selectedMonster">></span>
       <img src="{{monster.pictureLink}}" alt="Fond" class="avaliable-square-background-picture" (click)="selectedMonster = monster; selectedBackground = null;"/>
       <span *ngIf="monster === selectedMonster"><</span>
     </div>
