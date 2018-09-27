@@ -6,7 +6,7 @@ import { Monster } from './monster';
 import { Model } from './model.interface';
 
 
-export class Game implements Model{
+export class Game implements Model {
     constructor(id:String, name: String) {
         this._id = id;
         this.name = name;

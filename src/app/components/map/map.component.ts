@@ -74,5 +74,4 @@ export class MapComponent implements OnInit {
     }
     this.map = newMap;
   }
-
 }
