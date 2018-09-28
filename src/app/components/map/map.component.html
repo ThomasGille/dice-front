@@ -29,12 +29,18 @@
   <!-- END OF NAVBAR -->
 
 
-<div class="main" (click)="onClick($event)" [ngStyle]="{'width.px': x_dim * CASE_DIMENTION}">
+<div class="main" (click)="onClick($event)" [ngStyle]="{'width.px': (x_dim + 1) * CASE_DIMENTION}">
   <!-- Monsters display-->
   <div class="player" *ngFor="let player of game._monsters ;">
       <img src="{{player.pictureLink}}" alt="Case" class="player-picture" [ngStyle]="{'margin-top.px': player.y*80, 'margin-left.px': player.x*80}"/>
   </div>
 
+  <!-- Line number display -->
+  <div class="line-number">
+    <div class="square" *ngFor="let sub of map[0] ; index as j;">
+      {{j+1}}
+    </div>
+  </div>
   <!-- Background display -->
   <div class="line" *ngFor="let item of map ; index as i">
     {{ i + 1}}

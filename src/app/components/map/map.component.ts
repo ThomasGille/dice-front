@@ -45,9 +45,10 @@ export class MapComponent implements OnInit {
   onClick (e) {
     // If needed to place them centerly of the case :
     // Math.floor(5.25) -> 5
-    let i = (e.layerX - this.CASE_DIMENTION/2) / this.CASE_DIMENTION;
-    let j = (e.layerY - this.CASE_DIMENTION/2) / this.CASE_DIMENTION;
+
     if (this.selectedMonster) {
+      let i = (e.layerX - this.CASE_DIMENTION/2) / this.CASE_DIMENTION;
+      let j = (e.layerY - this.CASE_DIMENTION/2) / this.CASE_DIMENTION;
       this.selectedMonster.x = i;
       this.selectedMonster.y = j;
       let toUpdateMonster = this.selectedMonster; // prevent update after selected change
@@ -56,6 +57,8 @@ export class MapComponent implements OnInit {
         (err) => { console.error(err) }
       );
     } else {
+      let i = (e.layerX - 8*this.x_dim.toString().length - this.CASE_DIMENTION/2) / this.CASE_DIMENTION;
+      let j = (e.layerY - 16 - this.CASE_DIMENTION/2) / this.CASE_DIMENTION;
       this.map[Math.round(i)][Math.round(j)] = this.selectedBackground;
     }
   }

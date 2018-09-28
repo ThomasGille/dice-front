@@ -36,7 +36,8 @@
     position: relative; // usefull for click events
 
     & > .line {
-        display: inline-table;
+        display: inline-block; // for line-number
+        text-align: center;
         & > .square {
           & > span {
             min-width: 15px;
@@ -47,6 +48,13 @@
               height: 80px;
           }
         }
+    }
+
+    .line-number {
+      display: inline-block;
+      & > .square {
+        min-height: 80px;
+      }
     }
 
     .player {
